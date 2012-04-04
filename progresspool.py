@@ -6,6 +6,7 @@ import time
 multiprocessing.log_to_stderr()
 
 def f(x):
+    time.sleep(1)
     return x*x
 
 class LazyProgressBar(ProgressBar):
@@ -60,8 +61,17 @@ class ProgressPool():
 if __name__ == '__main__':
     pool = Pool(4)
     print pool._pool
-    amap = pool.map_async(f, range(10), 1)
-    print pool._pool
+    amap = pool.map_async(f, range(100), 1)
+    pbar = ProgressBar(widgets=['%s: ' % 'Testing',
+        Percentage(), Bar(), ETA()],
+        maxval=100).start()
+    while True:
+        time.sleep(0.1)
+        #print len(pool._cache)
+        pbar.update(100-amap._number_left)
+        if amap._number_left == 0:
+            break
+    pbar.finish()
     #result = amap.get()
     #print result
     #print result
