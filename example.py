@@ -17,10 +17,13 @@ def f(x):
     return x*x
 
 if __name__ == '__main__':
-    # using a normal pool
+    print "Using a normal pool... you never know when it is done..."
     p = Pool()
-    print p.map(f, range(100))
+    p.map(f, range(100))
+    print "Oh... finally... it has completed...\n"
 
-    # using a ProgressPool
+    time.sleep(3)
+
+    print "Now using a progress pool... enjoy the ride! :D"
     pp = ProgressPool()
-    print pp.map(f, range(100))
+    pp.map(f, range(100))
