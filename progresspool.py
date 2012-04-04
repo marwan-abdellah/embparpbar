@@ -17,9 +17,8 @@ Note: The progress bar used is available at:
 __author__ = "Valentin Haenel <valentin.haenel@epfl.ch>"
 
 import time
-import random
 from multiprocessing.pool import Pool
-from progressbar import ProgressBar, Percentage, Bar, ETA 
+from progressbar import ProgressBar, Percentage, Bar, ETA
 
 class ProgressPool(Pool):
     """ Extension of `multiprocessing.Pool` with `ProgressBar`.
@@ -67,8 +66,9 @@ class ProgressPool(Pool):
         # TODO should probably check for termination on each run here
         while True:
             time.sleep(0.1)
-            pbar.update(total_items-a_map._number_left)
-            if a_map._number_left == 0:
+            left = a_map._number_left
+            pbar.update(total_items-left)
+            if left == 0:
                 break
         pbar.finish()
         return a_map.get()
