@@ -9,7 +9,7 @@
 
 import time
 import random
-from multiprocess import Pool
+from multiprocessing import Pool
 from progresspool import ProgressPool
 
 def f(x):
