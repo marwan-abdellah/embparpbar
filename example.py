@@ -1,11 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-""" An example of using the `ProgressPool`
+""" An example of using the `ProgressPool`. """
 
-@author  Valentin Haenel <valentin.haenel@epfl.ch>
-
-"""
+__author__ = "Valentin Haenel <valentin.haenel@epfl.ch>"
 
 import time
 import random

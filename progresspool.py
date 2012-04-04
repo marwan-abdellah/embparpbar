@@ -11,9 +11,10 @@ Note: The progress bar used is available at:
 
     http://code.google.com/p/python-progressbar/
 
-@author  Valentin Haenel <valentin.haenel@epfl.ch>
 
 """
+
+__author__ = "Valentin Haenel <valentin.haenel@epfl.ch>"
 
 import time
 import random
