@@ -49,7 +49,7 @@ class ProgressPool(Pool):
             the result of applying func to each value in iterables
 
         """
-        # need to get the length, for the progressbar
+        # need to get the length, for the progress bar
         if not hasattr(iterable, '__len__'):
             iterable = list(iterable)
         total_items = len(iterable)
@@ -59,11 +59,11 @@ class ProgressPool(Pool):
             Percentage(), Bar(), ETA()],
             maxval=total_items).start()
 
-        # get the pool working aysnchronously
+        # get the pool working asynchronously
         a_map = self.map_async(func, iterable, chunksize)
 
-        # Crux: monitor the _number_left of the a_map, and update the progressbar
-        # accordingly
+        # Crux: monitor the _number_left of the a_map, and update the progress
+        # bar accordingly
         # TODO should probably check for termination on each run here
         while True:
             time.sleep(0.1)
