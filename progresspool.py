@@ -1,11 +1,16 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+""" A multiprocess `Pool` variant with a `ProgressBar`.
+
+@author  Valentin Haenel <valentin.haenel@epfl.ch>
+
+"""
+
 import time
 import random
 from multiprocessing.pool import Pool
 from progressbar import ProgressBar, Percentage, Bar, ETA 
-
-def f(x):
-    time.sleep(random.uniform(0,3))
-    return x*x
 
 class ProgressPool(Pool):
 
@@ -35,6 +40,3 @@ class ProgressPool(Pool):
         pbar.finish()
         return a_map.get()
 
-if __name__ == '__main__':
-    pp = ProgressPool()
-    print pp.map(f, range(100))
