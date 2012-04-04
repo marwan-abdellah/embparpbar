@@ -40,3 +40,10 @@ class ProgressPool(Pool):
         pbar.finish()
         return a_map.get()
 
+def f(x):
+    time.sleep(random.uniform(0,3))
+    return x*x
+
+if __name__ == '__main__':
+    pp = ProgressPool()
+    print pp.map(f, range(100))
