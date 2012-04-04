@@ -28,10 +28,10 @@ class ProgressPool(object):
             q.get()
             total+=1
             pbar.update(total)
-            for i in range(len(self.slots)):
+            for p in self.slots:
                 # check if anything completed
-                if not self.slots[i].is_alive():
-                    self.slots.pop(i)
+                if not p.is_alive():
+                    self.slots.remove(p)
                     break
             if len(sequence) == 0:
                 break
