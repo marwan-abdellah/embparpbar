@@ -8,6 +8,7 @@
 """
 
 import time
+import random
 from progresspool import ProgressPool
 
 def f(x):
