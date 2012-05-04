@@ -8,7 +8,9 @@ The ``Pool`` class from the multiprocessing is quite nice. What it lacks
 however, is a progress bar. This module seeks to remedy that by providing a
 ProgressPool.
 
-The progress bar is from: http://code.google.com/p/python-progressbar/
+## Dependencies
+
+* [python-progressbar](http://code.google.com/p/python-progressbar/)
 
 ## Installation
 
