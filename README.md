@@ -21,6 +21,20 @@ See the
 [example.py](https://github.com/esc/embparpbar/blob/d94cd5c801aae9d1e41db4942ad2a681bebe4da2/example.py).
 for details.
 
+It will look like::
+
+    zsh» ./example.py
+    Using a normal Pool... you never know when it is done...
+    Oh... finally... it has completed...
+
+
+    Now using a ProgressPool... enjoy the ride! :D
+    ProgressPool: 100%|###############################################|Time: 00:00:20
+
+    Now using a ProgressPool, with a custom progressbar! :D
+    Come on baby, let's do the twist:  ||| Time: 00:00:22
+
+
 ## Website
 
 Repository is at: https://github.com/esc/embparpbar
