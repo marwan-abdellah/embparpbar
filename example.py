@@ -20,15 +20,17 @@ if __name__ == '__main__':
     pool = Pool()
     pool.map(f, range(100))
     print "Oh... finally... it has completed...\n"
-
+    print ""
     time.sleep(3)
 
-    print "Now using a progress pool... enjoy the ride! :D"
+    print "Now using a ProgressPool... enjoy the ride! :D"
     ppool = ProgressPool()
     ppool.map(f, range(100))
+    print ""
+    time.sleep(3)
 
-    print "Now using a progress pool, with a custom progressbar... enjoy the ride! :D"
-    pbar = ProgressBar(widgets=['%s: ' % "Come on baby, lets do the twist",
+    print "Now using a ProgressPool, with a custom progressbar! :D"
+    pbar = ProgressBar(widgets=['%s: ' % "Come on baby, let's do the twist",
         ' ', RotatingMarker(), RotatingMarker(), RotatingMarker(), ' ', ETA()],
         maxval=100).start()
     ppool.map(f, range(100), pbar=pbar)
