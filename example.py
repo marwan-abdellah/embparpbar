@@ -8,7 +8,7 @@ __author__ = "Valentin Haenel <valentin.haenel@epfl.ch>"
 import time
 import random
 from multiprocessing import Pool
-from progresspool import ProgressPool
+from embparpbar import ProgressPool
 from progressbar import ProgressBar, RotatingMarker, ETA
 
 def f(x):
