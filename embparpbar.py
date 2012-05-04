@@ -1,18 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-""" A multiprocess `Pool` variant with a `ProgressBar`.
-
-The `Pool` class from the multiprocessing is quite nice. What it lacks however,
-is a progress bar. This module seeks to remedy that by providing a
-ProgressPool.
-
-Note: The progress bar used is available at:
-
-    http://code.google.com/p/python-progressbar/
-
-
-"""
+""" A multiprocess `Pool` variant with a `ProgressBar`.  """
 
 __author__ = "Valentin Haenel <valentin.haenel@epfl.ch>"
 

@@ -16,7 +16,7 @@ def f(x):
     return x*x
 
 if __name__ == '__main__':
-    print "Using a normal pool... you never know when it is done..."
+    print "Using a normal Pool... you never know when it is done..."
     pool = Pool()
     pool.map(f, range(100))
     print "Oh... finally... it has completed...\n"
