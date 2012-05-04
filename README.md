@@ -15,6 +15,12 @@ The progress bar is from: http://code.google.com/p/python-progressbar/
 Everything is in the file ``embparpbar.py`` , so just drop that file to where
 you want to use it.
 
+## Usage
+
+See the
+[example.py](https://github.com/esc/embparpbar/blob/d94cd5c801aae9d1e41db4942ad2a681bebe4da2/example.py).
+for details.
+
 ## Website
 
 Repository is at: https://github.com/esc/embparpbar
