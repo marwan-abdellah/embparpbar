@@ -39,13 +39,18 @@ class ProgressPool(Pool):
             the arguments to the func
         chunksize : int, default: 1
             the approximate number of tasks to distribute to a process at once
-        pbar : str
-            the string to display in the progress bar
+        pbar : str or ProgressBar
+            if str, use the string in a standard ProgressBar, else use the
+            given ProgressBar
 
         Returns
         -------
         results : list
             the result of applying func to each value in iterables
+
+        Raises
+        ------
+        TypeError if the pbar argument has the wrong type
 
         """
         # need to get the length, for the progress bar
@@ -54,9 +59,16 @@ class ProgressPool(Pool):
         total_items = len(iterable)
 
         # initialize the progress bar
-        pbar = ProgressBar(widgets=['%s: ' % pbar,
-            Percentage(), Bar(), ETA()],
-            maxval=total_items).start()
+        if isinstance(pbar, str):
+            pbar = ProgressBar(widgets=['%s: ' % pbar,
+                Percentage(), Bar(), ETA()],
+                maxval=total_items).start()
+        elif isinstance(pbar, ProgressBar):
+            pass
+        else:
+            raise TypeError("pbar must be of type 'string' or, "+\
+                    "'ProgressBar' you gave: "+\
+                    "'%s' of type %s" % (pbar, type(pbar)))
 
         # get the pool working asynchronously
         a_map = self.map_async(func, iterable, chunksize)

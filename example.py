@@ -9,6 +9,7 @@ import time
 import random
 from multiprocessing import Pool
 from progresspool import ProgressPool
+from progressbar import ProgressBar, RotatingMarker, ETA
 
 def f(x):
     time.sleep(random.uniform(0, 3))
@@ -25,3 +26,9 @@ if __name__ == '__main__':
     print "Now using a progress pool... enjoy the ride! :D"
     ppool = ProgressPool()
     ppool.map(f, range(100))
+
+    print "Now using a progress pool, with a custom progressbar... enjoy the ride! :D"
+    pbar = ProgressBar(widgets=['%s: ' % "Come on baby, lets do the twist",
+        ' ', RotatingMarker(), RotatingMarker(), RotatingMarker(), ' ', ETA()],
+        maxval=100).start()
+    ppool.map(f, range(100), pbar=pbar)
